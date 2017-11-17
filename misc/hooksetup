@@ -3,7 +3,8 @@
 HOOK=.git/hooks/pre-commit
 test -f $HOOK && echo "$HOOK already exists." && exit 1
 
-cat >$HOOK <<EOF
+cat >$HOOK <<'EOF'
+#!/bin/sh
 # Get revision to diff against.
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
